@@ -1,6 +1,11 @@
 /* ============================================
-   RESET & BASE
+   INSTAPAPER-INSPIRED DESIGN SYSTEM
    ============================================ */
+
+/* ---------- FONTS ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- RESET ---------- */
 *,
 *::before,
 *::after {
@@ -11,43 +16,37 @@
 
 html {
     font-size: 100%;
+    background: #fafafa;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-family: 'Merriweather', Georgia, serif;
     color: #222;
-    line-height: 1.625;
+    line-height: 1.7;
     font-size: 1rem;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
+    background: #fafafa;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: #fff;
 }
 
-/* ============================================
-   LAYOUT
-   ============================================ */
+/* ---------- LAYOUT ---------- */
 .layout {
     max-width: 68.75rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* ============================================
-   SIDEBAR
-   ============================================ */
+/* ---------- SIDEBAR ---------- */
 .sidebar {
     width: 100%;
 }
 
 .sidebar-inner {
-    padding: 1.5625rem 1.25rem 2.5rem;
+    padding: 2rem 1.5rem;
 }
 
 /* Author */
 .author {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .author-photo {
@@ -60,13 +59,15 @@ body {
     background-position: center;
     background-clip: padding-box;
     margin-bottom: 1rem;
+    border: 2px solid #e8e4df;
 }
 
 .author-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.82813rem;
-    margin: 0.5rem 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0.5rem 0 0.25rem;
 }
 
 .author-title a {
@@ -76,57 +77,61 @@ body {
 
 .author-title a:hover,
 .author-title a:focus {
-    color: #5d93ff;
+    color: #bd382f;
 }
 
 .author-subtitle {
-    color: #888;
-    line-height: 1.625rem;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
 /* Menu */
 .menu {
-    margin-bottom: 1.625rem;
+    margin-bottom: 1.5rem;
 }
 
 .menu-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    border-top: 1px solid #e8e4df;
 }
 
 .menu-list li {
     padding: 0;
-    margin: 0.625rem 0;
+    margin: 0;
 }
 
 .menu-link {
-    font-size: 1rem;
-    color: #222;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.875rem;
     font-weight: 400;
+    color: #555;
     text-decoration: none;
-    border: 0;
-    transition: color 0.15s ease, border-bottom-color 0.15s ease;
-    display: inline-block;
+    display: block;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #e8e4df;
+    transition: color 0.15s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .menu-link:hover,
 .menu-link:focus {
-    color: #5d93ff;
-    border-bottom: 1px solid #5d93ff;
+    color: #bd382f;
 }
 
 .menu-link.active {
-    color: #222;
-    border-bottom: 1px solid #222;
+    color: #bd382f;
     font-weight: 600;
 }
 
 /* Contacts */
 .contacts {
-    margin-bottom: 1.625rem;
+    margin-bottom: 1.5rem;
 }
 
 .contacts-list {
@@ -134,29 +139,35 @@ body {
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0.625rem -0.1875rem;
-    width: 8.75rem;
+    margin: 0.5rem -0.125rem;
 }
 
 .contacts-item {
     padding: 0;
-    margin: 0.25rem;
+    margin: 0.1875rem;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
-    height: 2.1875rem;
-    width: 2.1875rem;
-    line-height: 2.1875rem;
-    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    border-radius: 4px;
     text-align: center;
-    border: 1px solid #ebebeb;
+    border: 1px solid #e8e4df;
+    background: #fff;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.contacts-item:hover {
+    border-color: #bd382f;
+    background: #fef0f0;
 }
 
 .contacts-link {
     border: 0;
     display: flex;
-    color: #222;
+    color: #555;
     align-items: center;
     justify-content: center;
     transition: color 0.15s ease;
@@ -164,7 +175,7 @@ body {
 
 .contacts-link:hover,
 .contacts-link:focus {
-    color: #5d93ff;
+    color: #bd382f;
 }
 
 .icon {
@@ -180,94 +191,101 @@ body {
 
 /* Copyright */
 .copyright {
-    color: #b6b6b6;
-    font-size: 0.875rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #aaa;
+    font-size: 0.8rem;
 }
 
-/* ============================================
-   CONTENT PAGES
-   ============================================ */
+/* ---------- CONTENT PAGES ---------- */
 .page {
     margin-bottom: 2rem;
 }
 
 .page-inner {
-    padding: 1.0625rem 1.25rem;
+    padding: 2.5rem 2rem;
+    background: #fff;
+    border-left: 1px solid #e8e4df;
+    border-right: 1px solid #e8e4df;
+    border-bottom: 1px solid #e8e4df;
+    min-height: calc(100vh - 200px);
 }
 
 .page-title {
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 3rem;
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.35;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #222;
 }
 
 .section-title {
-    font-size: 1.6875rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.875rem;
     font-weight: 600;
-    line-height: 2.4375rem;
-    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #bd382f;
     margin-bottom: 1.5rem;
-    color: #222;
-    border-bottom: 2px solid #5d93ff;
     padding-bottom: 0.5rem;
+    border-bottom: 2px solid #bd382f;
     display: inline-block;
 }
 
 .page-body {
     font-size: 1rem;
-    line-height: 1.625rem;
+    line-height: 1.8;
     margin: 0;
 }
 
 .page-body p {
-    margin-bottom: 1.25rem;
-    max-width: 40rem;
+    margin-bottom: 1.5rem;
+    max-width: 42rem;
+    color: #333;
 }
 
 .page-body a {
-    color: #5d93ff;
-    text-decoration: none;
+    color: #5b8def;
+    text-decoration: underline;
 }
 
 .page-body a:hover,
 .page-body a:focus {
-    color: #f7a046;
-    text-decoration: underline;
+    color: #bd382f;
 }
 
 /* Page navigation link */
 .page-nav {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .page-nav-link {
+    font-family: 'Inter', -apple-system, sans-serif;
     display: inline-block;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 25px;
-    color: #222;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid #e8e4df;
+    border-radius: 3px;
+    color: #555;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: all 0.15s ease;
 }
 
 .page-nav-link:hover,
 .page-nav-link:focus {
-    color: #5d93ff;
-    border-color: #5d93ff;
+    color: #bd382f;
+    border-color: #bd382f;
     text-decoration: none;
 }
 
-/* ============================================
-   EXPERIENCE
-   ============================================ */
+/* ---------- EXPERIENCE ---------- */
 .experience-item {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e8e4df;
 }
 
 .experience-item:last-child {
@@ -275,30 +293,29 @@ body {
 }
 
 .experience-role {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
     margin-bottom: 0.25rem;
     color: #222;
 }
 
 .experience-company {
-    color: #888;
-    font-size: 0.95rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #777;
+    font-size: 0.9rem;
     margin-bottom: 0.75rem;
-    font-style: italic;
 }
 
 .experience-desc {
-    line-height: 1.625rem;
+    line-height: 1.8;
 }
 
-/* ============================================
-   EDUCATION
-   ============================================ */
+/* ---------- EDUCATION ---------- */
 .education-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e8e4df;
 }
 
 .education-item:last-child {
@@ -306,20 +323,19 @@ body {
 }
 
 .education-degree {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
     margin-bottom: 0.25rem;
 }
 
 .education-school {
-    color: #888;
-    font-size: 0.95rem;
-    font-style: italic;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #777;
+    font-size: 0.9rem;
 }
 
-/* ============================================
-   SKILLS
-   ============================================ */
+/* ---------- SKILLS ---------- */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -327,17 +343,25 @@ body {
 }
 
 .skill-category {
-    padding: 1.25rem;
-    background: #fafafa;
-    border: 1px solid #e6e6e6;
-    border-radius: 4px;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #e8e4df;
+    border-radius: 3px;
+    transition: border-color 0.15s ease;
+}
+
+.skill-category:hover {
+    border-color: #d4cfc9;
 }
 
 .skill-category-title {
-    font-size: 1.1rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #555;
+    margin-bottom: 1rem;
 }
 
 .skill-list {
@@ -351,66 +375,73 @@ body {
 
 .skill-item {
     display: inline-block;
-    padding: 0.35rem 1rem;
-    background: #5d93ff;
-    color: #fff;
-    border-radius: 20px;
-    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    background: transparent;
+    color: #bd382f;
+    border-radius: 3px;
+    border: 1px solid #bd382f;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.8rem;
     font-weight: 500;
-    transition: background 0.15s ease, transform 0.15s ease;
+    letter-spacing: 0.02em;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .skill-item:hover {
-    background: #4a80e0;
-    transform: translateY(-1px);
+    background: #bd382f;
+    color: #fff;
 }
 
-/* ============================================
-   CONTACT LINKS
-   ============================================ */
+/* ---------- CONTACT LINKS ---------- */
 .contact-links {
     list-style: none;
     padding: 0;
 }
 
 .contact-links li {
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.75rem;
     font-size: 1rem;
 }
 
 .contact-links a {
-    color: #5d93ff;
-    text-decoration: none;
-    display: inline-block;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #5b8def;
+    text-decoration: underline;
+    font-size: 0.95rem;
 }
 
 .contact-links a:hover {
-    color: #f7a046;
-    text-decoration: underline;
+    color: #bd382f;
 }
 
-/* ============================================
-   DIVIDER
-   ============================================ */
+/* ---------- DIVIDER ---------- */
 .section-divider {
     border: 0;
     height: 1px;
-    background: #e6e6e6;
+    background: #e8e4df;
     margin: 1.5rem 0 2rem;
 }
 
 /* ============================================
-   DESKTOP - Sidebar fixed at top, content scrolls (685px+)
+   DESKTOP - 685px+
    ============================================ */
 @media screen and (min-width: 685px) {
     .layout {
         display: grid;
-        grid-template-columns: calc(41.625% - 1.09375rem) 1fr;
-        gap: 1.875rem;
+        grid-template-columns: 14rem 1fr;
+        gap: 0;
     }
 
     .sidebar {
         width: 100%;
+    }
+
+    .sidebar-inner {
+        padding: 2.5rem 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #fafafa;
     }
 
     .content {
@@ -418,52 +449,13 @@ body {
     }
 
     .page-inner {
-        padding: 1.875rem 1.25rem;
+        padding: 3rem 2.5rem;
     }
 
     .page-title {
-        font-size: 2.5rem;
-        line-height: 3.25rem;
-        margin-bottom: 2.35625rem;
-    }
-
-    .sidebar-inner {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: #fff;
-        padding: 1.875rem 1.25rem 2.5rem;
-    }
-
-    .sidebar-inner::after {
-        background: linear-gradient(180deg, #e6e6e6 0%, #e6e6e6 48%, transparent);
-        position: absolute;
-        content: '';
-        width: 1px;
-        height: 33.75rem;
-        top: 30px;
-        right: -10px;
-    }
-}
-
-/* ============================================
-   LARGE DESKTOP (960px+)
-   ============================================ */
-@media screen and (min-width: 960px) {
-    .layout {
-        grid-template-columns: calc(33.3% - 1.25rem) 1fr;
-    }
-
-    .sidebar-inner {
-        padding: 2.5rem;
-    }
-
-    .page-inner {
-        padding: 2.5rem 2.1875rem;
-    }
-
-    .page-title {
-        font-size: 2.8rem;
+        font-size: 2.25rem;
+        line-height: 1.3;
+        margin-bottom: 1.75rem;
     }
 
     .skills-grid {
@@ -472,35 +464,62 @@ body {
 }
 
 /* ============================================
-   MOBILE TWEAKS (< 685px)
+   LARGE DESKTOP - 960px+
    ============================================ */
-@media screen and (max-width: 684px) {
+@media screen and (min-width: 960px) {
+    .layout {
+        grid-template-columns: 14rem 1fr;
+    }
+
+    .sidebar-inner {
+        padding: 3rem 1.5rem;
+    }
+
+    .page-inner {
+        padding: 3.5rem 3rem;
+    }
+
     .page-title {
-        font-size: 1.8rem;
-        line-height: 2.5rem;
-    }
-
-    .sidebar-inner::after {
-        display: none;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-        line-height: 2rem;
+        font-size: 2.5rem;
     }
 }
 
 /* ============================================
-   PRINT FRIENDLY
+   MOBILE - < 685px
+   ============================================ */
+@media screen and (max-width: 684px) {
+    .sidebar-inner {
+        border-bottom: 1px solid #e8e4df;
+        background: #fff;
+    }
+
+    .page-inner {
+        padding: 1.5rem 1.25rem;
+        border-left: none;
+        border-right: none;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .section-title {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
+   PRINT
    ============================================ */
 @media print {
     .sidebar {
         width: 100%;
-        margin-right: 0;
     }
 
-    .sidebar-inner::after {
-        display: none;
+    .page-inner {
+        border: none;
+        padding: 1rem 0;
     }
 
     .content {

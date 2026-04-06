@@ -14,7 +14,7 @@
         <aside class="sidebar">
             <div class="sidebar-inner">
                 <div class="author">
-                    <div class="author-photo"></div>
+                    <div class="author-photo" id="profile-trigger" role="button" tabindex="0" aria-label="View profile photo"></div>
                     <h2 class="author-title"><a href="index.html">Carlos Henrique</a></h2>
                     <p class="author-subtitle">Software Engineer</p>
                 </div>
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
 
-                <p class="copyright">&copy; 2025 Carlos Henrique. All rights reserved.</p>
+                <p class="copyright">© 2025 Carlos Henrique. All rights reserved.</p>
             </div>
         </aside>
 
@@ -60,7 +60,7 @@
                     <h2 class="section-title">Sobre</h2>
                     <div class="page-body">
                         <p>Sou Desenvolvedor Full Stack com cerca de 5 anos de experiência na área de desenvolvimento de software, com formação técnica em Informática e atualmente graduando em Engenharia da Computação. Minha atuação é focada principalmente no ecossistema JavaScript, utilizando Node.js, React e TypeScript para o desenvolvimento de aplicações web completas, desde o front-end até o back-end e banco de dados.</p>
-                        <p>Durante minha trajetória profissional, participei do desenvolvimento de sistemas web, APIs, ferramentas internas, automações de processos e migração de sistemas legados. Tenho experiência com arquitetura de software, boas práticas de desenvolvimento, Clean Code, SOLID, testes automatizados (TDD), além de trabalhar com bancos de dados PostgreSQL, ORM Prisma e ambientes containerizados com Docker.</p>
+                        <p>Durante minha trajetória profissional, participei do desenvolvimento de sistemas web, APIs, ferramentas internas, automações de processos e migração de sistemas legados. Tenho experiência com arquitetura de software, boas práticas de desenvolvimento, Clean Code, SOLID, testes automatizados (TDD) além de trabalhar com bancos de dados PostgreSQL, ORM Prisma e ambientes containerizados com Docker.</p>
                         <p>Ao longo das experiências profissionais, também atuei diretamente com áreas de negócio para entender regras complexas e transformar essas necessidades em soluções técnicas, criando sistemas e automações que reduziram trabalho manual, melhoraram processos internos e aumentaram a eficiência operacional das equipes.</p>
                         <p>Gosto de trabalhar entendendo o problema antes de pensar apenas na tecnologia, buscando sempre desenvolver soluções simples, bem estruturadas e fáceis de manter. Tenho interesse principalmente em desenvolvimento back-end, arquitetura de software, modelagem de sistemas e construção de aplicações escaláveis.</p>
                     </div>
@@ -68,5 +68,48 @@
             </section>
         </main>
     </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-photo" id="modal-photo"></div>
+            <button class="modal-close" id="modal-close-btn">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var trigger = document.getElementById('profile-trigger');
+            var overlay = document.getElementById('modal-overlay');
+            var closeBtn = document.getElementById('modal-close-btn');
+
+            function openModal() {
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            trigger.addEventListener('click', openModal);
+            trigger.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal();
+                }
+            });
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+            });
+        })();
+    </script>
 </body>
 </html>

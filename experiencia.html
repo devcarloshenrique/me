@@ -14,7 +14,7 @@
         <aside class="sidebar">
             <div class="sidebar-inner">
                 <div class="author">
-                    <div class="author-photo"></div>
+                    <div class="author-photo" id="profile-trigger" role="button" tabindex="0" aria-label="View profile photo"></div>
                     <h2 class="author-title"><a href="index.html">Carlos Henrique</a></h2>
                     <p class="author-subtitle">Software Engineer</p>
                 </div>
@@ -155,5 +155,48 @@
             </section>
         </main>
     </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-photo" id="modal-photo"></div>
+            <button class="modal-close" id="modal-close-btn">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var trigger = document.getElementById('profile-trigger');
+            var overlay = document.getElementById('modal-overlay');
+            var closeBtn = document.getElementById('modal-close-btn');
+
+            function openModal() {
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            trigger.addEventListener('click', openModal);
+            trigger.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal();
+                }
+            });
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+            });
+        })();
+    </script>
 </body>
 </html>
